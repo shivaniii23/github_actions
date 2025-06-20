@@ -1,7 +1,8 @@
 name: Reusable file
-on: 
+
+on:
   workflow_call:
-    inputs: 
+    inputs:
       env:
         required: true
         type: string
@@ -11,10 +12,14 @@ on:
     secrets:
       TOKEN:
         required: true
+
 jobs:
   deploy:
     runs-on: self-hosted
+
     steps:
-      run: echo "Env: ${{ inputs.env }}" 
-      run: echo "num: ${{ inputs.num }}"
-      run: echo "secret ${{ secret.TOKEN }}"
+      - run: echo "Env: ${{ inputs.env }}"
+
+      - run: echo "Num: ${{ inputs.num }}"
+
+      - run: echo "Secret: ${{ secrets.TOKEN }}"
