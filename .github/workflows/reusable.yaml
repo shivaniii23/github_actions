@@ -12,12 +12,8 @@ on:
     secrets:
       TOKEN:
         required: true
-
 jobs:
   deploy:
     runs-on: self-hosted
-
     steps:
       - run: echo "Env: ${{ inputs.env }}"
-      - run: echo "Num: ${{ inputs.num }}"
-      - run: echo "Secret: ${{ secrets.TOKEN }}"
