@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python
-        uses: ./.github/workflows/setup-python
+        uses: ./.github/actions/setup-python
         with:
           python-version: '3.9'
 
