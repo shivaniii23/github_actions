@@ -23,4 +23,5 @@ jobs:
         uses: actions/download-artifact@v3
           with: 
             name: mul
-        run: echo multiply.py
+      - name: "cat"
+        run: cat multiply.py
