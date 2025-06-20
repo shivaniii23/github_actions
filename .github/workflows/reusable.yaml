@@ -19,3 +19,5 @@ jobs:
 
     steps:
       - run: echo "Env ${{ inputs.env }}"
+      - run: echo "Num ${{ inputs.num }}"
+      - run: echo "secret ${{ secrets.TOKEN }}"
