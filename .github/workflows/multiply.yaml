@@ -17,14 +17,8 @@ jobs:
 
   test:
     needs: build
-    if: success()
-    runs-on: self-hosted
-
-    steps:
-      - name: Download multiply.py
-        uses: actions/download-artifact@v4
-        with:
-          name: mul
-
-      - name: Show content
-        run: cat multiply.py
+    uses: ./github/workflows/reusable.yaml
+    with:
+      env: prod
+    secrets:
+      TOKEN: ${{ secrets.REPO_SEC }}
