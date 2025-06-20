@@ -12,8 +12,10 @@ on:
     secrets:
       TOKEN:
         required: true
+
 jobs:
   deploy:
     runs-on: self-hosted
+
     steps:
       - run: echo "Env: ${{ inputs.env }}"
