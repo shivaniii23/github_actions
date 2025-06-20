@@ -7,8 +7,8 @@ on:
         type: string
       num:
         required: true
-        type: int
-    secret:
+        type: number
+    secrets:
       TOKEN:
         required: true
 jobs:
