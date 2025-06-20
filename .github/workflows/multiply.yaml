@@ -6,22 +6,24 @@ jobs:
   build:
     runs-on: self-hosted
 
-
     steps:
       - uses: actions/checkout@v3
 
-      - name: Run tests
+      - name: Upload multiply.py
         uses: actions/upload-artifact@v3
-          with:
-            name: mul
-            path: ./src/multiply.py
+        with:
+          name: mul
+          path: ./src/multiply.py
 
   test:
+    needs: build
     runs-on: self-hosted
+
     steps:
-      - name: "env repo sec"
+      - name: Download multiply.py
         uses: actions/download-artifact@v3
-          with: 
-            name: mul
-      - name: "cat"
+        with:
+          name: mul
+
+      - name: Show content
         run: cat multiply.py
