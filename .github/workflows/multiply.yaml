@@ -13,8 +13,8 @@ jobs:
       - name: Run tests
         uses: actions/upload-artifact@v3
           with:
-            file: mutiply.py
-            path: ./src/
+            name: mul
+            path: ./src/multiply.py
 
   test:
     runs-on: self-hosted
@@ -22,5 +22,5 @@ jobs:
       - name: "env repo sec"
         uses: actions/download-artifact@v3
           with: 
-            file: multiply.py
+            name: mul
         run: echo multiply.py
