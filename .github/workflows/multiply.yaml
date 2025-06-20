@@ -13,10 +13,11 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: mul
-          path: ./src/multiply.py
+          path: ./src/multipl.py
 
   test:
     needs: build
+    if: success()
     runs-on: self-hosted
 
     steps:
