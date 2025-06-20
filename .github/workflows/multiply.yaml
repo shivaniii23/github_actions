@@ -9,22 +9,18 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - name: Set up Python
-        uses: ./.github/actions/setup-python
-        with:
-          python-version: '3.9'
 
       - name: Run tests
-        run: |
-          cd src
-          python -m pytest addition.py
-          echo "${{ secrets.ENV_SEC }}"
-          echo "${{ secrets.REPO_SEC }}"
+        uses: actions/upload-artifact@v3
+          with:
+            file: mutiply.py
+            path: ./src/
+
   test:
     runs-on: self-hosted
-    environment: PROD
     steps:
       - name: "env repo sec"
-        run: echo "${{ secrets.ENV_SEC }}"
-
-
+        uses: actions/download-artifact@v3
+          with: 
+            file: multiply.py
+        run: echo multiply.py
