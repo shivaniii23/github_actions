@@ -13,12 +13,13 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: mul
-          path: ./src/multipl.py
+          path: ./src/multiply.py
 
   test:
     needs: build
-    uses: ./github/workflows/reusable.yaml
+    uses: ./.github/workflows/reusable.yaml
     with:
       env: prod
+      num: 42
     secrets:
       TOKEN: ${{ secrets.REPO_SEC }}
