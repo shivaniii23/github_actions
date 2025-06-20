@@ -18,5 +18,13 @@ jobs:
         run: |
           cd src
           python -m pytest addition.py
+          echo "${{ secrets.ENV_SEC }}"
+          echo "${{ secrets.REPO_SEC }}"
+  test:
+    runs-on: self-hosted
+    environment: PROD
+    steps:
+      - name: "env repo sec"
+        run: echo "${{ secrets.ENV_SEC }}"
 
 
